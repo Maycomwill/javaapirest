@@ -21,6 +21,7 @@ public class Aluno implements Serializable { // A classe Aluno implementa uma in
     private String cpf;
     private String password;
     private String email;
+    private String name;
 
     public Aluno() { // Construtor vazio (padrão)
     }
@@ -37,6 +38,14 @@ public class Aluno implements Serializable { // A classe Aluno implementa uma in
     public String getPassword() {
         return password;
     }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public String getEmail() {
         return email;
