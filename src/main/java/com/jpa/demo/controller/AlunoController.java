@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/aluno") // Define o endpoint da aplicação, um endereco utilizado para comunicação entre uma API e um sistema externo.
 public class AlunoController {
@@ -27,10 +28,11 @@ public class AlunoController {
         alunoObj.setCpf(body.cpf());
         alunoObj.setPassword(body.password());
         alunoObj.setEmail(body.email());
+        alunoObj.setName(body.name());
 
 
         alunoRepository.save(alunoObj); // invoca o método save para armazenar o objeto no banco de dados
-        return ResponseEntity.status(HttpStatus.CREATED).build(); // Retorna o status da resposta HTTP após a compilação
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoObj); // Retorna o status da resposta HTTP após a compilação
     }
 
     @GetMapping
